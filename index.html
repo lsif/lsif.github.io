@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>LSIF.dev</title>
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous"/>
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+		crossorigin="anonymous"/>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="stylesheet" href="./style-additions.css"/>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40540747-21"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-40540747-21');
+    </script>
+</head>
+
+<body>
+	<div class="page-header" style="background-color:#eeeeee; margin-top: 0px;">
+		<div class="container">
+			<h1>
+				LSIF.dev<br/>
+				<small>A community-driven source of knowledge for <a href = "https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a> implementations</small>
+			</h1>
+			<br/>
+			<p class="lead">
+				LSIF.dev is a <a href="https://github.com/langserver/langserver.github.io">community-driven site</a>, maintained
+				by <a href="https://www.sourcegraph.com">Sourcegraph</a>, to track development progress of LSIF indexers.
+			</p>
+		</div>
+	</div>
+
+	<div class="container">
+		<h3>What is LSIF?</h3>
+		<blockquote>
+            The Language Server Index Format (LSIF, pronounced “else if”) is a standard format for <a href="https://langserver.org">language 
+            servers</a> or other programming tools to emit their knowledge about a code workspace. This persisted information can 
+            later be used to answer LSP requests for the same workspace without running a language server.
+		</blockquote>
+		<p>
+			– <a href="https://code.visualstudio.com/blogs/2019/02/19/lsif">LSIF specification blog post</a>
+		</p>
+		<p>
+            LSIF is a standard format for persisted code analyzer output. It allows a code viewing client (e.g., an editor or code browser)
+             to provide features like autocomplete, go to definition, find references, and similar, without requiring a 
+             language analyzer to perform those computations in real-time. Today, several companies are working to support its growth, 
+             including Sourcegraph and GitHub/Microsoft, and the protocol is beginning to be used to power a rapidly growing list
+             of language intelligence tools.
+            See below for details on and links to current indexer implementations.
+
+		</p>
+
+		<br/>
+		<h3>When is LSIF useful?</h3>
+		<p>
+            For many repositories, the only two build environments that understand the code well enough to provide code intelligence 
+            are your editor and CI. Most code browsers don’t have access to either of those environments, so they use heuristics to 
+            provide code intelligence.
+		</p>
+		<p>
+            With LSIF, a build step in CI can dump information about the code to a file which can be transported anywhere. 
+            For example, code browsers only need that LSIF dump in order to provide hover tooltips, jump-to-definition, and 
+            find-references. This has many benefits:
+            <ul>
+                <li>It’s fast because all of the information is precomputed</li>
+                <li>It’s precise because the information comes from an environment which understands the code</li>
+            </ul>
+		</p>
+
+		<br/>
+
+		<a name="implementations"></a>
+		<h3>Current implementations</h3>
+		<p class="lead">
+			LSIF is growing - fast. See <a href="#implementations-server">tables</a> below for the latest on adoption.
+		</p>
+		<br/>
+		<h4>Qualifications:</h4>
+		<p>To be included on this list, LSIF indexers must be fully open source.</p>
+		<br/>
+		<h4>Key</h4>
+		<div class="row">
+			<div class="col-md-2">
+				<table class="table">
+					<tr>
+						<td class="success"></td>
+						<td>Implemented</td>
+					</tr>
+					<tr>
+						<td class="warning"></td>
+						<td>WIP</td>
+					</tr>
+					<tr>
+						<td class="danger"></td>
+						<td>Not implemented</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<br/>
+		<a name="implementations-server"></a>
+		<h4>LSIF Indexers</h4>
+
+		<table class="table table-striped sticky-header">
+			<thead>
+				<tr>
+					<th>Language</th>
+					<th>Maintainer&#160;&#160;&#160;&#160;&#160;&#160;</th>
+					<th class="repo">Repository</th>
+					<th>Hover documentation</th>
+					<th>Definitions</th>
+					<th>References</th>
+					<th>Monikers (for cross-project imports/exports)</th>
+					<th>Additional capabilities</th>
+				</tr>
+			</thead>
+			<tr>
+				<th>TypeScript</th>
+				<td><a href="https://microsoft.com/">Microsoft</a></td>
+				<td class="repo"><a href="https://github.com/microsoft/lsif-node/tree/master/tsc">https://github.com/microsoft/lsif-node/tree/master/tsc</a></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+            </tr>
+            <tr>
+				<th>Go</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/sourcegraph/lsif-go">https://github.com/sourcegraph/lsif-go</a></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+            <tr>
+				<th>C++</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/sourcegraph/lsif-cpp">https://github.com/sourcegraph/lsif-cpp</a></td>
+				<td class="danger"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+            <tr>
+				<th>OCaml</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/rvantonder/lsif-ocaml">https://github.com/rvantonder/lsif-ocaml</a></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="danger"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+            <tr>
+				<th>Python</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/sourcegraph/lsif-py">https://github.com/sourcegraph/lsif-py</a></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="danger"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th colspan="10"><br/>Work in Progress</th>
+			</tr>
+            <tr>
+				<th>Java</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/sourcegraph/lsif-py">https://github.com/sourcegraph/lsif-py</a></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+            <tr>
+				<th>Jsonnet</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo"><a href="https://github.com/sourcegraph/lsif-py">https://github.com/sourcegraph/lsif-py</a></td>
+				<td class="danger"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="danger"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td></td>
+			</tr>
+		</table>
+		<br/>
+
+		<br/>
+		<a name="contact"></a>
+		<h3>Contact us</h3>
+		<p>
+			LSIF.dev is maintained by <a href="https://sourcegraph.com">Sourcegraph</a>.
+		</p>
+		<p>
+			To suggest additions or to update the status of a project, please file issues or submit PRs on this project at <a href="https://github.com/lsif/lsif.github.io">github.com/lsif/lsif.github.io</a>
+		</p>
+
+		<br/><br/>
+
+
+		<p>
+			Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+		</p>
+	</div>
+</body>
+
+</html>

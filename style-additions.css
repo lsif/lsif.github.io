@@ -25,3 +25,7 @@ td.repo {
   width: 100%;
   border-bottom: 2px solid #ddd;
 }
+
+.nowrap {
+  white-space: nowrap;
+}

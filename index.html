@@ -8,17 +8,14 @@
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-		crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-		crossorigin="anonymous"/>
+	<!-- Bootstrap JavaScript not included because site styles do not require them -->
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<link rel="stylesheet" href="style-additions.css"/>
@@ -35,12 +32,14 @@
 </head>
 
 <body>
-	<div class="page-header" style="background-color:#eeeeee; margin-top: 0px;">
+	<div class="page-header pb-3 pt-3" style="background-color:#eeeeee;">
 		<div class="container">
 			<h1>
-				LSIF.dev<br/>
-				<small>A community-driven source of knowledge for <a href = "https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a> implementations</small>
+				LSIF.dev
 			</h1>
+			<h2 class="text-muted">
+				<small class="small text-muted">A community-driven source of knowledge for <a href = "https://code.visualstudio.com/blogs/2019/02/19/lsif">Language Server Index Format</a> implementations</small>
+			</h2>
 			<br/>
 			<p class="lead">
 				LSIF.dev is a <a href="https://github.com/lsif/lsif.github.io">community-driven site</a>, maintained
@@ -49,16 +48,16 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container mt-5">
 		<h3>What is LSIF?</h3>
-		<blockquote>
-            The Language Server Index Format (LSIF, pronounced “else if”) is a standard format for <a href="https://langserver.org">language
-            servers</a> or other programming tools to emit their knowledge about a code workspace. This persisted information can
-            later be used to answer LSP requests for the same workspace without running a language server.
-		</blockquote>
-		<p>
-			– <a href="https://code.visualstudio.com/blogs/2019/02/19/lsif">LSIF specification blog post</a>
-		</p>
+		<div style="border-left: 5px solid #eeeeee">
+			<blockquote class="blockquote pl-3 pt-3 pb-3">
+				The Language Server Index Format (LSIF, pronounced “else if”) is a standard format for <a href="https://langserver.org">language
+				servers</a> or other programming tools to emit their knowledge about a code workspace. This persisted information can
+				later be used to answer LSP requests for the same workspace without running a language server.
+				<footer class="blockquote-footer"><a href="https://code.visualstudio.com/blogs/2019/02/19/lsif">LSIF specification blog post</a></footer>
+			</blockquote>
+		</div>
 		<p>
             LSIF is a standard format for persisted code analyzer output. It allows a code viewing client (e.g., an editor or code browser)
              to provide features like autocomplete, go to definition, find references, and similar, without requiring a
@@ -66,7 +65,6 @@
              including Sourcegraph and GitHub/Microsoft, and the protocol is beginning to be used to power a rapidly growing list
              of language intelligence tools.
             See below for details on and links to current indexer implementations.
-
 		</p>
 
 		<br/>
@@ -97,23 +95,56 @@
 		<h4>Qualifications:</h4>
 		<p>To be included on this list, LSIF indexers must be fully open source.</p>
 		<br/>
-		<h4>Key</h4>
 		<div class="row">
-			<div class="col-md-2">
-				<table class="table">
-					<tr>
-						<td class="success"></td>
-						<td>Implemented</td>
-					</tr>
-					<tr>
-						<td class="warning"></td>
-						<td>WIP</td>
-					</tr>
-					<tr>
-						<td class="danger"></td>
-						<td>Not implemented</td>
-					</tr>
-				</table>
+			<div class="col-md-6">
+				<h4>Key</h4>
+				<div class="row">
+					<div class="col-md-6">
+						<table class="table">
+							<tr>
+								<td class="table-success"></td>
+								<td>Implemented</td>
+							</tr>
+							<tr>
+								<td class="table-warning"></td>
+								<td>WIP</td>
+							</tr>
+							<tr>
+								<td class="table-danger"></td>
+								<td>Not implemented</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h4>Status</h4>
+				<div class="row">
+					<div>
+						<table class="table">
+							<tr>
+								<td><span class="badge badge-secondary">Unknown</span></td>
+								<td>Implementation status unknown</td>
+							</tr>
+							<tr>
+								<td><span class="badge badge-danger">Unstable</span></td>
+								<td>Crashes on known/valid input</td>
+							</tr>
+							<tr>
+								<td><span class="badge badge-warning">Development</span></td>
+								<td>Not feature complete or unstable</td>
+							</tr>
+							<tr>
+								<td><span class="badge badge-info">Beta</span></td>
+								<td>No known bugs, but not widely tested</td>
+							</tr>
+							<tr>
+								<td><span class="badge badge-success">Ready</span></td>
+								<td>Feature complete and stable</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -121,7 +152,7 @@
 		<a name="implementations-server"></a>
 		<h4>LSIF Indexers</h4>
 
-		<table class="table table-striped sticky-header">
+		<table class="table table-striped sticky-header small">
 			<thead>
 				<tr>
 					<th>Language</th>
@@ -132,6 +163,7 @@
 					<th>References</th>
 					<th>Cross-file</th>
 					<th>Cross-repository</th>
+					<th>Status</th>
 					<th>Notes</th>
 				</tr>
 			</thead>
@@ -139,110 +171,144 @@
 				<th>C++</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-cpp">github.com/sourcegraph/lsif-cpp</a></td>
-				<td class="danger"></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td></td>
+				<td class="table-danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td><span class="badge badge-info">Beta</span></td>
+				<td>Difficult installation. Clang only (no gcc builds).</td>
 			</tr>
 			<tr>
 				<th>Dart</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-dart">github.com/sourcegraph/lsif-dart</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-info">Beta</span></td>
+				<td>Only supports doc hovers</td>
 			</tr>
 			<tr>
 				<th>Go</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-go">github.com/sourcegraph/lsif-go</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td><span class="badge badge-success">Ready</span></td>
 				<td></td>
 			</tr>
 			<tr>
 				<th>Haskell</th>
 				<td><a href="https://github.com/mpickering">@mpickering</a></td>
 				<td class="repo nowrap"><a href="https://github.com/mpickering/hie-lsif">github.com/mpickering/hie-lsif</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-secondary">Unknown</span></td>
 				<td></td>
 			</tr>			
 			<tr>
 				<th>Java</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-java">github.com/sourcegraph/lsif-java</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="warning"></td>
-				<td>Supports Maven and Gradle</td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-warning"></td>
+				<td><span class="badge badge-warning">Development</span><span class="badge badge-danger">Unstable</span></td>
+				<td>Supports Maven and Gradle.</td>
 			</tr>
-      <tr>
+			<tr>
 				<th>Java</th>
 				<td><a href="https://microsoft.com/">Microsoft</a></td>
 				<td class="repo nowrap"><a href="https://github.com/Microsoft/lsif-java">github.com/Microsoft/lsif-java</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td class="danger"></td>
-				<td></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-warning">Development</span><span class="badge badge-danger">Unstable</span></td>
+				<td>Maven only</td>
 			</tr>
 			<tr>
 				<th>Jsonnet</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-jsonnet">github.com/sourcegraph/lsif-jsonnet</a></td>
-				<td class="danger"></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td></td>
+				<td class="table-danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-warning">Development</span></td>
+				<td>Proof of concept implementation</td>
 			</tr>
 			<tr>
 				<th>OCaml</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/rvantonder/lsif-ocaml">github.com/rvantonder/lsif-ocaml</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-warning">Development</span></td>
+				<td>Only supports type hovers</td>
 			</tr>
 			<tr>
 				<th>Python</th>
 				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
 				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-py">github.com/sourcegraph/lsif-py</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="danger"></td>
-				<td class="danger"></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-warning">Development</span><span class="badge badge-danger">Unstable</span></td>
 				<td></td>
+			</tr>
+			<tr>
+				<th>Scala</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-semanticdb">github.com/sourcegraph/lsif-semanticdb</a></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-danger"></td>
+				<td><span class="badge badge-warning">Development</span></td>
+				<td>Requires semanticdb generation</td>
+			</tr>
+			<tr>
+				<th>TypeScript</th>
+				<td><a href="https://sourcegraph.com/">Sourcegraph</a></td>
+				<td class="repo nowrap"><a href="https://github.com/sourcegraph/lsif-node">github.com/sourcegraph/lsif-node</a></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td><span class="badge badge-info">Beta</span></td>
+				<td>Also supports JavaScript</td>
 			</tr>
 			<tr>
 				<th>TypeScript</th>
 				<td><a href="https://microsoft.com/">Microsoft</a></td>
 				<td class="repo nowrap"><a href="https://github.com/microsoft/lsif-node/tree/master/tsc">github.com/microsoft/lsif-node</a></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-				<td class="success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td class="table-success"><i class="material-icons">check</i></span></td>
+				<td><span class="badge badge-warning">Development</span><span class="badge badge-danger">Unstable</span></td>
 				<td></td>
 			</tr>
 		</table>
@@ -260,9 +326,8 @@
 
 		<br/><br/>
 
-
 		<p>
-			Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+			Icons from <a href="https://material.io/resources/icons">Google Material icons</a>, licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache License Version 2.0</a>.
 		</p>
 	</div>
 </body>

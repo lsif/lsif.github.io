@@ -1,5 +1,4 @@
 # lsif.github.io
 
-This is the HTML source of https://lsif.dev managed by [Sourcegraph](https://sourcegraph.com).
-
-Please file issues or submit pull requests for any additions, suggestions, or corrections!
+> [!NOTE]
+> **This project is archived.** LSIF.dev is no longer actively maintained. LSIF has been superseded by [SCIP](https://scip-code.org), Sourcegraph's successor protocol for code intelligence.
